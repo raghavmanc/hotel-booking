@@ -10,12 +10,12 @@ interface Props{
 
 const Layout = ({children}: Props) => {
   return (
-    //Aligns elements in a columns, min-h makes sure header is at top and footer and bottom
+    //Aligns elements in a columns, min-h makes sure header is at top and footer and bottom. 
     <div className="flex flex-col min-h-screen">
         <Header />
         <Hero />
-        <div className="container mx-auto py-10 flex-1">
-          {children}
+        <div className="container mx-auto py-10 flex-1">  
+          {children}    
         </div>
         <Footer/>
     </div> 

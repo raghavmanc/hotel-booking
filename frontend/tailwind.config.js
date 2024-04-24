@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {},
     container: {
-      padding: "10rem",
+      padding: "10rem", // adding extra padding so that container elements are more in the center.
     },
   },
   plugins: [],

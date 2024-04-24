@@ -4,8 +4,21 @@ import jwt from 'jsonwebtoken';
 
 
 const router = express.Router();
+const {check, validationResult} = require('express-validator');
 
-router.post('/register', async(req:Request, res:Response) => {
+// /api/users/register
+// in built express validators for checking if the fields are correctly filled
+router.post('/register',[
+    check("firstName", "First Name is required").isString(),
+    check("lastName", "Last Name is required").isString(),
+    check("email", "Email is required").isEmail(),
+    check("password", "6 or more characters are required").isLength({min:6,})
+], async(req:Request, res:Response) => {
+
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({message: errors.array()});
+    }
 
     try{
         // checking if a user already exists with the email provided 
